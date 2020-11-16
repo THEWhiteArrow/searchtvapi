@@ -19,17 +19,13 @@ const getMovieData = async (inputVal) => {
          manageOldCards('delete', '.preView', '.card');
          try {
             const req = await axios.get(`http://api.tvmaze.com/search/shows?q=${inputVal}`);
-            console.log(req.data);
             makeNewPreViews(req.data);
-
-
          } catch (err) {
             alert('UNABLE TO FIND ANY TITLES...', err)
             manageOldCards('delete', '.preView');
          }
    }
    form.elements.q.value = "";
-
 }
 
 const manageOldCards = (action, ...arguments) => {

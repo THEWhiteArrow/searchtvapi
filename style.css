@@ -1,8 +1,9 @@
 :root{
    --animation-spec: fadeIn .4s ease-in-out both;
-   --background-color : moccasin;
-   --btnColor:rgb(250, 154, 65);
-   --btnColHover:rgb(197, 125, 58);
+   --firstColor : moccasin;
+   --secondColor:rgb(250, 154, 65);
+   --thirdColor:rgb(197, 125, 58);
+
 }
 
 html{
@@ -15,7 +16,7 @@ body{
    font-family: 'Josefin Sans', sans-serif;
 
    margin:0;
-   background-color: var(--background-color);
+   background-color: var(--firstColor);
 }
 
 header{
@@ -44,23 +45,22 @@ form{
 }
 
 input{
-   height: 100%;
    font-size: 1.2em;
    box-sizing: border-box;
    padding: 2px 2px 2px 8px;
    border:none;
    outline: none;
-   color:var(--btnColor);
+   color:var(--secondColor);
 }
 
 input::placeholder{
-   color:var(--btnColor);
+   color:var(--secondColor);
 }
 
 
 #submitBtn{
    outline: none;
-   background-color:var(--btnColor);
+   background-color:var(--secondColor);
    border: none;
    color:white;
    font-size: 1.2em;
@@ -69,25 +69,26 @@ input::placeholder{
 }
 
 #submitBtn:hover{
-   background-color:var(--btnColHover);
+   background-color:var(--thirdColor);
 
 }
 
 #returnBtn{
-   outline: none;
-   background-color:var(--btnColor);
-   width:100%;
    align-self: center;
+   outline: none;
+   padding:5px;
    border: none;
    color:white;
    font-size: 1.2em;
 
+   width:100%;
+   
+   background-color:var(--secondColor);
    transition: all .2s;
-   padding:5px;
 }
 
 #returnBtn:hover{
-   background-color:var(--btnColHover);
+   background-color:var(--thirdColor);
 }
 
 
@@ -98,7 +99,7 @@ input::placeholder{
    flex-wrap: wrap;
    justify-content: space-evenly;
    align-items: center;
-
+   align-self: center;
 }
 
 
@@ -107,9 +108,13 @@ input::placeholder{
    display: flex;
    flex-direction: column;
    align-items: center;
-   width:215px;
+   min-width:215px;
    margin:2em;
 
+   border-radius: 3em 3em 2em 2em;
+   -webkit-box-shadow: 0px 16px 50px -7px #b98234; 
+   box-shadow: 0px 16px 50px -7px  #b98234;
+   
    animation: var(--animation-spec);
 }
 .preViewImg{
@@ -136,9 +141,10 @@ input::placeholder{
 /* cards */
 .card{
    display: flex;
-   width:80%;
    flex-direction: column;
    margin: 2em;
+   width:80%;
+   max-width: 1096px;
 
    animation: var(--animation-spec);
 }
@@ -171,21 +177,21 @@ input::placeholder{
 .cardTitle{
    display: flex;
    
-   font-size: 2.5rem;
-   padding: 10px 10px 5px 10px;
+   font-size: 2.6rem;
+   padding: 20px 10px 20px 10px;
 
 }
 .cardScore{
    display: flex;
 
    font-size: 1.7rem;
-   padding: 10px 10px;
+   padding: 0px 10px 8px 10px;
 }
 .cardDescription{
    display: flex;
    flex-direction: column;
    
-   padding: 10px;
+   padding: 0px 10px;
    font-size: 1.2rem;
 }
 
@@ -195,7 +201,7 @@ hr.scissors {
    border-width: 3px 0 0;
    height: 2px;
    margin-top: 4em;
-   width: 100%;
+   width: 95%;
 }
 hr.scissors:before {
    content: "\2701"; 
@@ -224,7 +230,7 @@ hr.scissors:before {
 /* @media(min-width:1475px){
    .cardImg{
       background-position: right;
-      background-color: var(--btnColor);
+      background-color: var(--secondColor);
       transition: background-color .2s;
    }
 } */
@@ -233,11 +239,13 @@ hr.scissors:before {
       padding-left: 0;
    }
    form{
-      height:4.2rem;
+      height:3.6rem;
       flex-direction: column;
    }
+
    #submitBtn,#returnBtn, input{
-   font-size: 1.4em;
+      font-size: 1.2em;
+      height: 50%;
    }
    .cardContent{
       flex-direction: column;
@@ -250,9 +258,6 @@ hr.scissors:before {
    }
    .cardInfo{
       margin: 0;
-   }
-   .cardTitle{
-      padding-top:15px ;
    }
 }
 
