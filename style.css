@@ -1,0 +1,269 @@
+:root{
+   --animation-spec: fadeIn .4s ease-in-out both;
+   --background-color : moccasin;
+   --btnColor:rgb(250, 154, 65);
+   --btnColHover:rgb(197, 125, 58);
+}
+
+html{
+   height: 100vh;
+   width: 100%;
+}
+body{
+   display: flex;
+   flex-direction: column;
+   font-family: 'Josefin Sans', sans-serif;
+
+   margin:0;
+   background-color: var(--background-color);
+}
+
+header{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 1em 1em 1.8em 1em;
+}
+
+h1{
+   font-size: 5.35em;
+   text-align: center;
+   font-weight: 600;
+}
+
+h3,h4,p{
+   margin:0;
+   padding:0;
+}
+
+form{
+   display: inline-flex;
+   width:100%;
+   justify-content: center;
+   height: 2.2em;
+}
+
+input{
+   height: 100%;
+   font-size: 1.2em;
+   box-sizing: border-box;
+   padding: 2px 2px 2px 8px;
+   border:none;
+   outline: none;
+   color:var(--btnColor);
+}
+
+input::placeholder{
+   color:var(--btnColor);
+}
+
+
+#submitBtn{
+   outline: none;
+   background-color:var(--btnColor);
+   border: none;
+   color:white;
+   font-size: 1.2em;
+
+   transition: all .2s;   
+}
+
+#submitBtn:hover{
+   background-color:var(--btnColHover);
+
+}
+
+#returnBtn{
+   outline: none;
+   background-color:var(--btnColor);
+   width:100%;
+   align-self: center;
+   border: none;
+   color:white;
+   font-size: 1.2em;
+
+   transition: all .2s;
+   padding:5px;
+}
+
+#returnBtn:hover{
+   background-color:var(--btnColHover);
+}
+
+
+
+#container{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+   align-items: center;
+
+}
+
+
+/*  preViews && cards */
+.preView{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width:215px;
+   margin:2em;
+
+   animation: var(--animation-spec);
+}
+.preViewImg{
+   background-color: cornsilk;
+   background-position: center;
+   background-size: cover;
+   height:300px;
+   width:100%;
+   border-radius: 3em 3em 0 0;
+
+}
+.preViewTitle{
+   background-color: white;
+   border-radius: 0 0 2em 2em;
+   width: 100%;
+   height: 2.5rem;
+   
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+}
+
+
+/* cards */
+.card{
+   display: flex;
+   width:80%;
+   flex-direction: column;
+   margin: 2em;
+
+   animation: var(--animation-spec);
+}
+
+.cardContent{
+   display:flex;
+   flex-direction: row;
+
+   min-height: 800px;
+}
+
+.cardImg{
+   display: flex;
+   flex: 3;
+   background-size:contain;
+   background-repeat: no-repeat;
+   background-position: top;
+}
+
+.cardInfo{
+   display: flex;
+   flex-direction: column;
+   flex:3;
+   
+   height: 100%;
+   box-sizing: border-box;
+   margin-left: 5px;
+}
+
+.cardTitle{
+   display: flex;
+   
+   font-size: 2.5rem;
+   padding: 10px 10px 5px 10px;
+
+}
+.cardScore{
+   display: flex;
+
+   font-size: 1.7rem;
+   padding: 10px 10px;
+}
+.cardDescription{
+   display: flex;
+   flex-direction: column;
+   
+   padding: 10px;
+   font-size: 1.2rem;
+}
+
+/*  HR */
+hr.scissors {
+   border-style: dashed;
+   border-width: 3px 0 0;
+   height: 2px;
+   margin-top: 4em;
+   width: 100%;
+}
+hr.scissors:before {
+   content: "\2701"; 
+   display: block;
+   font-size: 150%;
+   left: 50%;
+   margin: -23px 0 0 -8px;
+   padding: 0 8px;
+   position: absolute;
+   text-align: center;
+}
+
+
+/*  animations */
+.hide{
+   display: none;
+}
+
+@keyframes fadeIn {
+   from {opacity: 0;}
+   to {opacity: 1;}
+ }
+
+
+/*  media quaries */
+/* @media(min-width:1475px){
+   .cardImg{
+      background-position: right;
+      background-color: var(--btnColor);
+      transition: background-color .2s;
+   }
+} */
+@media(max-width:700px){
+   .cardTitle,.cardScore,.cardDescription{
+      padding-left: 0;
+   }
+   form{
+      height:4.2rem;
+      flex-direction: column;
+   }
+   #submitBtn,#returnBtn, input{
+   font-size: 1.4em;
+   }
+   .cardContent{
+      flex-direction: column;
+   }
+   .cardImg{
+      flex: unset;
+      background-size: cover;
+      width:100%;
+      height: 750px;
+   }
+   .cardInfo{
+      margin: 0;
+   }
+   .cardTitle{
+      padding-top:15px ;
+   }
+}
+
+@media(max-width:576px){
+   .cardImg{
+      height:650px;
+   }
+}
+
+@media(max-width:430px){
+   .cardImg{
+      height:450px;
+   }
+}
