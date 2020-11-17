@@ -19,6 +19,13 @@ const getMovieData = async (inputVal) => {
          manageOldCards('delete', '.preView', '.card');
          try {
             const req = await axios.get(`http://api.tvmaze.com/search/shows?q=${inputVal}`);
+
+            // const req2 = await axios.get(`http://api.tvmaze.com/search/shows?q=${inputVal.slice(0, inputVal.length - 1)}`);
+            // let counter = 0;
+            // for (let i of reg2.data) {
+            // some w pierwszym array i jesli true to nic nie rob
+            // }
+
             console.log(req.data)
             makeNewPreViews(req.data);
          } catch (err) {
