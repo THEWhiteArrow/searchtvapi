@@ -19,6 +19,7 @@ const getMovieData = async (inputVal) => {
          manageOldCards('delete', '.preView', '.card');
          try {
             const req = await axios.get(`http://api.tvmaze.com/search/shows?q=${inputVal}`);
+            console.log(req.data)
             makeNewPreViews(req.data);
          } catch (err) {
             alert('UNABLE TO FIND ANY TITLES...', err)
@@ -84,12 +85,12 @@ const listenAndCreateCard = (el, data) => {
 
       const card = document.createElement('div');
       const cardContent = document.createElement('div');
-      const info = document.createElement('div');
       const img = document.createElement('div');
+      const info = document.createElement('div');
       const title = document.createElement('h3');
-      const description = document.createElement('div');
       const score = document.createElement('h4');
-
+      const description = document.createElement('div');
+      const link = document.createElement('a');
       const returnBtn = document.createElement('button');
 
 
@@ -99,7 +100,12 @@ const listenAndCreateCard = (el, data) => {
       title.append(data.show.name);
       title.classList.add('cardTitle');
 
+      link.append('Direct to Webpage');
+      link.setAttribute('target', '_blank');
+      link.setAttribute('href', data.show.url);
+
       description.innerHTML = data.show.summary;
+      description.append(link);
       description.classList.add('cardDescription');
 
       score.append('Global Scoring: ', Math.floor(data.score) * 5);
@@ -131,12 +137,6 @@ const settingUpReturnBtn = (el) => {
       manageOldCards('show', '.preView');
       manageOldCards('delete', '.card');
    })
-   // returnBtn.addEventListener('mouseenter', function () {
-   //    window.innerWidth >= 1475 ? el.style.backgroundColor = 'rgb(197, 125, 58)' : el.style.backgroundColor = 'none';
-   // })
-   // returnBtn.addEventListener('mouseleave', function () {
-   //    window.innerWidth >= 1475 ? el.style.backgroundColor = 'rgb(250, 154, 65)' : el.style.backgroundColor = 'none';
-   // })
 }
 
 form.addEventListener('submit', onRequset);
