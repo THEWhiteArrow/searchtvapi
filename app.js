@@ -5,29 +5,22 @@ const onRequset = async (e) => {
    e.preventDefault();
    const inputVal = form.elements.q.value;
    console.log(inputVal);
-
    getMovieData(inputVal);
 }
 
 const getMovieData = async (inputVal) => {
-
    switch (inputVal) {
       case '':
          alert('NO TITLE INCLUDED...')
          break;
       default:
          manageOldCards('delete', '.preView', '.card');
+
          try {
             const req = await axios.get(`http://api.tvmaze.com/search/shows?q=${inputVal}`);
-
-            // const req2 = await axios.get(`http://api.tvmaze.com/search/shows?q=${inputVal.slice(0, inputVal.length - 1)}`);
-            // let counter = 0;
-            // for (let i of reg2.data) {
-            // some w pierwszym array i jesli true to nic nie rob
-            // }
-
-            console.log(req.data)
+            console.log(req.data);
             makeNewPreViews(req.data);
+
          } catch (err) {
             alert('UNABLE TO FIND ANY TITLES...', err)
             manageOldCards('delete', '.preView');
@@ -44,7 +37,6 @@ const manageOldCards = (action, ...arguments) => {
       } else {
          for (let item of items) item.remove();
       }
-
    }
 }
 
@@ -57,7 +49,6 @@ const makeNewPreViews = (data) => {
       default:
          for (let n of data) appendPreView(n);
    }
-
 }
 
 const appendPreView = (data) => {
@@ -65,6 +56,7 @@ const appendPreView = (data) => {
       const newPreView = document.createElement('div');
       const preViewImg = document.createElement('div');
       const title = document.createElement('h3');
+
 
       preViewImg.classList.add('preViewImg')
       preViewImg.style.backgroundImage = `url('${data.show.image.medium}')`
@@ -77,16 +69,11 @@ const appendPreView = (data) => {
       container.append(newPreView);
 
       listenAndCreateCard(newPreView, data);
-
-      setTimeout(function () {
-         newPreView.classList.add('transition');
-      }, 0.01)
-
-
    }
 }
 
 const listenAndCreateCard = (el, data) => {
+
    el.addEventListener('click', () => {
       manageOldCards('hide', '.preView');
 
@@ -115,7 +102,7 @@ const listenAndCreateCard = (el, data) => {
       description.append(link);
       description.classList.add('cardDescription');
 
-      score.append('Global Scoring: ', Math.floor(data.score) * 5);
+      score.append('Global Rating: ', `${Math.floor(data.score) * 5}%`);
       score.classList.add('cardScore');
 
       info.append(title, score, description);
@@ -131,15 +118,11 @@ const listenAndCreateCard = (el, data) => {
       card.classList.add('card', 'c');
       container.append(card)
 
-      setTimeout(function () {
-         card.classList.add('transition');
-      }, 0.01)
-
-      settingUpReturnBtn(img);
+      settingUpReturnBtn();
    })
 }
 
-const settingUpReturnBtn = (el) => {
+const settingUpReturnBtn = () => {
    returnBtn.addEventListener('click', function () {
       manageOldCards('show', '.preView');
       manageOldCards('delete', '.card');
