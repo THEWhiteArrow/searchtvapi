@@ -38,7 +38,7 @@ h1{
    color:white;
    line-height: 0.9em;
    text-shadow:0px 5px 5px rgba(8, 8, 8, 0.349),
-               0px -2px 10px  rgba(8, 8, 8, 0.815);
+               0px 0px 1px  rgba(8, 8, 8, 0.815);
 
    transition: all .5s;
 }
