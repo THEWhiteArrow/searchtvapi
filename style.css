@@ -1,8 +1,7 @@
 :root{
-   --animation-spec: fadeIn .4s ease-in-out both;
+   --animation-spec: fadeIn .7s ease-in-out ;
    --secondColor: rgb(255, 148, 25);
    --thirdColor: rgb(201, 111, 8);
-   --animation-spec: fadeIn 1s;
 }
 
 html{
@@ -26,7 +25,7 @@ header{
    margin: 2.5em 0 0 0;
 }
 
-h1,h3,h4,p{
+h1,h3,h4,h5,p{
    margin:0;
    padding:0;
 }
@@ -288,8 +287,35 @@ hr.scissors:before {
    text-align: center;
 }
 
-/* groups */
+.error{
+   position:fixed;
+   border-radius: 0 8px 8px 0;
+   bottom:1%;
+   left:0;
+   cursor: pointer;
 
+   width:190px;
+   padding:3px 10px 3px 5px;
+   background-color:#ffbdbd;
+   border:1px solid #e28c8c;
+   color: #e0464c;
+   font-weight:300;
+
+   animation:slideIn .7s ease-out;
+   transition:all .7s ease-in-out;
+}
+
+.error #closeError{
+   display:flex;
+   font-size:1.05em;
+   box-sizing: border-box;
+   background-color: inherit;
+   border:none;
+   color:inherit;
+   padding:0;
+   margin:0;
+}
+/* groups */
 button,input{
    font-family: inherit;
    font-weight: 500;
@@ -309,6 +335,10 @@ button,.preView{
 @keyframes fadeIn {
    from {opacity: 0;}
    to {opacity: 1;}
+}
+@keyframes slideIn {
+   from {opacity: 0;transform:translateX(-170px)}
+   to {opacity: 1;transform:translateX(0px)}
 }
 
 

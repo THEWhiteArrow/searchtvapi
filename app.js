@@ -11,7 +11,7 @@ const onRequset = async (e) => {
 const getMovieData = async (inputVal) => {
    switch (inputVal) {
       case '':
-         alert('NO TITLE INCLUDED...')
+         displayError('NO TITLE INCLUDED...')
          break;
       default:
          manageOldCards('delete', '.preView', '.card');
@@ -22,7 +22,7 @@ const getMovieData = async (inputVal) => {
             makeNewPreViews(req.data);
 
          } catch (err) {
-            alert('UNABLE TO FIND ANY TITLES...', err)
+            displayError('UNABLE TO FIND ANY TITLES...');
             manageOldCards('delete', '.preView');
          }
    }
@@ -44,7 +44,7 @@ const manageOldCards = (action, ...arguments) => {
 const makeNewPreViews = (data) => {
    switch (data.length) {
       case 0:
-         alert("NO SHOWS' DATA");
+         displayError("NO MOVIES' DATA...")
          break;
       default:
          for (let n of data) appendPreView(n);
@@ -127,6 +127,36 @@ const settingUpReturnBtn = () => {
       manageOldCards('show', '.preView');
       manageOldCards('delete', '.card');
    })
+}
+
+const displayError = (msg) => {
+   manageOldCards('delete', '.error');
+   const error = document.createElement('div');
+
+   error.innerHTML=[
+      `<div style="display:flex;flex-direction:row; justify-content:space-between;align-items:center">
+         <p>ERROR</p>
+         <button id="closeError">X</button>
+      </div>
+       <p>${msg.toLowerCase()}</p>`
+   ];
+   error.classList.add('error');
+   container.append(error);
+
+   error.addEventListener('click', function(){
+      fadeOutHideError(this);
+   })
+   setTimeout(()=> {
+      fadeOutHideError(error);
+
+   },8000);
+}
+
+const fadeOutHideError= (el) => {
+   el.style.opacity='0';
+      setTimeout(()=> {
+         el.remove();
+      },700);
 }
 
 form.addEventListener('submit', onRequset);
