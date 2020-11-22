@@ -133,30 +133,29 @@ const displayError = (msg) => {
    manageOldCards('delete', '.error');
    const error = document.createElement('div');
 
-   error.innerHTML=[
-      `<div style="display:flex;flex-direction:row; justify-content:space-between;align-items:center">
-         <p>ERROR</p>
-         <button id="closeError">X</button>
-      </div>
-       <p>${msg}</p>`
+   error.innerHTML = [
+      `
+         <p>ERROR:  ${msg}</p>
+         <button id="closeError">
+         <sup>X</sup></button>`
    ];
    error.classList.add('error');
    container.append(error);
 
-   error.addEventListener('click', function(){
+   error.addEventListener('click', function () {
       fadeOutHideError(this);
    })
-   setTimeout(()=> {
+   setTimeout(() => {
       fadeOutHideError(error);
 
-   },8000);
+   }, 8000);
 }
 
-const fadeOutHideError= (el) => {
-   el.style.opacity='0';
-      setTimeout(()=> {
-         el.remove();
-      },700);
+const fadeOutHideError = (el) => {
+   el.style.opacity = '0';
+   setTimeout(() => {
+      el.remove();
+   }, 700);
 }
 
 form.addEventListener('submit', onRequset);

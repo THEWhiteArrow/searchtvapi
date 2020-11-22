@@ -286,34 +286,36 @@ hr.scissors:before {
 }
 
 .error{
+   font-family: Arial,sans-serif;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
    position:fixed;
    border-radius: 0 8px 8px 0;
-   bottom:1%;
+   bottom:2rem;
    left:0;
    cursor: pointer;
+   
+   padding:7px 10px 7px 30px;
+   transform:translateX(-25px);
 
-   width:220px;
-   transform:translateX(-20px);
-   padding:3px 10px 3px 30px;
    background-color:#ffcccc;
    border:1px solid #e28c8c;
    color: #b64e4e;
-   font-size: 1.15rem;
-   font-weight:500;
+   font-weight:400;
 
    transition:all .7s ease-in-out;
    animation:slideIn .4s cubic-bezier(0.175, 0.885,0.32,1.320);
 }
 
 .error #closeError{
-   display:flex;
-   font-size:1.05em;
-   box-sizing: border-box;
    background-color: inherit;
    border:none;
    color:inherit;
    padding:0;
    margin:0;
+   margin-left:2rem;
+
 }
 /* groups */
 button:focus:not(:focus-visible){
