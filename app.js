@@ -11,7 +11,7 @@ const onRequset = async (e) => {
 const getMovieData = async (inputVal) => {
    switch (inputVal) {
       case '':
-         displayError('NO TITLE INCLUDED...')
+         displayError('No title included...')
          break;
       default:
          manageOldCards('delete', '.preView', '.card');
@@ -22,7 +22,7 @@ const getMovieData = async (inputVal) => {
             makeNewPreViews(req.data);
 
          } catch (err) {
-            displayError('UNABLE TO FIND ANY TITLES...');
+            displayError('Unable to find any movies...');
             manageOldCards('delete', '.preView');
          }
    }
@@ -44,7 +44,7 @@ const manageOldCards = (action, ...arguments) => {
 const makeNewPreViews = (data) => {
    switch (data.length) {
       case 0:
-         displayError("NO MOVIES' DATA...")
+         displayError("No movies' data...")
          break;
       default:
          for (let n of data) appendPreView(n);
@@ -138,7 +138,7 @@ const displayError = (msg) => {
          <p>ERROR</p>
          <button id="closeError">X</button>
       </div>
-       <p>${msg.toLowerCase()}</p>`
+       <p>${msg}</p>`
    ];
    error.classList.add('error');
    container.append(error);

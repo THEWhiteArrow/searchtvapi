@@ -294,15 +294,16 @@ hr.scissors:before {
    left:0;
    cursor: pointer;
 
-   width:190px;
-   padding:3px 10px 3px 5px;
+   width:220px;
+   transform:translateX(-20px);
+   padding:3px 10px 3px 30px;
    background-color:#ffbdbd;
    border:1px solid #e28c8c;
    color: #e0464c;
    font-weight:300;
 
-   animation:slideIn .7s ease-out;
    transition:all .7s ease-in-out;
+   animation:slideIn .4s cubic-bezier(0.175, 0.885,0.32,1.320);
 }
 
 .error #closeError{
@@ -337,8 +338,8 @@ button,.preView{
    to {opacity: 1;}
 }
 @keyframes slideIn {
-   from {opacity: 0;transform:translateX(-170px)}
-   to {opacity: 1;transform:translateX(0px)}
+   from {opacity: 0;transform:translateX(-220px)}
+   to {opacity: 1;transform:translateX(-25px)}
 }
 
 
