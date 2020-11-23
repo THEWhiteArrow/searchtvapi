@@ -293,11 +293,11 @@ hr.scissors:before {
    align-items: center;
    position:fixed;
    border-radius: 0 8px 8px 0;
-   top:0.5rem;
+   top:.3rem;
    left:0;
    cursor: pointer;
    
-   padding:7px 10px 7px 35px;
+   padding:8px 10px 7px 35px;
    transform:translateX(-25px);
 
    background-color:#ffcccc;
@@ -306,7 +306,7 @@ hr.scissors:before {
    font-weight:400;
 
    transition:all .7s ease-in-out;
-   animation:slideIn .4s cubic-bezier(0.175, 0.885,0.32,1.320);
+   animation:slideIn .50s cubic-bezier(0.175, 0.885,0.32,1.320);
 }
 
 .error #closeError{

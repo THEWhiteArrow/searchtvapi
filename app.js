@@ -148,7 +148,7 @@ const displayError = (msg) => {
    setTimeout(() => {
       fadeOutHideError(error);
 
-   }, 8000);
+   }, 7000);
 }
 
 const fadeOutHideError = (el) => {
