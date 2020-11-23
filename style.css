@@ -293,11 +293,11 @@ hr.scissors:before {
    align-items: center;
    position:fixed;
    border-radius: 0 8px 8px 0;
-   bottom:2rem;
+   top:0.5rem;
    left:0;
    cursor: pointer;
    
-   padding:7px 10px 7px 30px;
+   padding:7px 10px 7px 35px;
    transform:translateX(-25px);
 
    background-color:#ffcccc;
